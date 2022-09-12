@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symptoms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Jost&family=Nunito&family=Poppins:wght@300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+
+    }
+
+    #med {
+      position: relative;
+      right: -190px;
+    }
+
+
+    #typ {
+      position: relative;
+      right: -525px;
+    }
+
+    #quantity {
+      position: relative;
+      right: -600px;
+    }
+
+    #unit {
+      position: relative;
+      right: -720px;
+    }
+
+    #labels {
+      display: flex;
+      flex-direction: row;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .list {
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .list-items {
+      padding: 10px 5px;
+    }
+
+    .list-items:hover {
+      background-color: #dddddd;
+    }
+
+    input[type="text"] {
+      width: 35%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    #div input[type="text"] {
+      padding-left: 40px;
+    }
+
+    element.style {
+      position: relative;
+    }
+
+    #div {
+      position: relative;
+    }
+
+    #div i {
+      position: relative;
+      left: -550px;
+      top: 1px;
+
+      padding: 9px 8px;
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    #div input[type="text"]:focus+i {
+      color: #4E97D1;
+    }
+
+    #div.inputIconBg i {
+      background-color: #aaa;
+      color: #fff;
+      padding: 9px 4px;
+      border-radius: 4px 0 0 4px;
+    }
+
+    #div.inputIconBg input[type="text"]:focus+i {
+      color: #fff;
+      background-color: #4E97D1;
+    }
+
+    .select {
+      width: 10rem;
+    }
+
+    .select {
+      padding: 0.5rem;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      width: fit-content;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+
+    }
+
+    .select:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    .add {
+      display: flex;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 260px;
+      top: 72px;
+    }
+
+    .add:hover {
+      background: #4E97D1;
+    }
+
+    .add:active {
+      background: #006DB2;
+    }
+
+    .add_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .add_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .rem {
+      display: flex;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 180px;
+      top: 72px;
+    }
+
+    .rem:hover {
+      background: #4E97D1;
+    }
+
+    .rem:active {
+      background: #006DB2;
+    }
+
+    .rem_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .rem_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    #my-input {
+      align-items: center;
+    }
+
+    .textinput {
+      max-width: 10%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .textinput:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    .btn {
+      width: 150px;
+      background-color: #7BB4E3;
+      border: none;
+      outline: none;
+      height: 49px;
+      border-radius: 49px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    .btn:hover {
+      background-color: #4d84e2;
+    }
+
+    .btn:active {
+      background-color: #006DB2;
+    }
+  </style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script type="text/javascript"></script>
+</head>
+
+<body>
+  <form id="form">
+    <div class="container" id="div">
+      <div>
+        <div>
+          <div id="labels">
+            <label id="med">
+              <h3>Symptoms</h3>
+            </label>
+            <label id="typ">
+              <h3>Types</h3>
+            </label>
+            <label id="quantity">
+              <h3>Value</h3>
+            </label>
+            <label id="unit">
+              <h3>Units</h3>
+            </label>
+          </div>
+
+          <div id="symptoms_0">
+            <input type="text" name="symptom" id="symptom_0" class="myinput form-control" placeholder="Symptom-1"
+              onkeyup="myFunction(0)" required/>
+            <i class="fa fa-thermometer-empty fa-lg fa-fw" id="logo" aria-hidde="true"></i>
+
+          
+
+            <select class="select" name="type" id="a0" onchange="populate(this.id, 'b0', 0)" required>
+              <option value="">select</option>
+              <option value="temp">Temp</option>
+              <option value="sugar">Sugar</option>
+              <option value="bloodpressure">Bloodpressure</option>
+            </select>
+
+            <input class="textinput" name="value" id="numtext_0" random=""
+              onkeypress="return inputnum(this, event, 0);" required />
+            <select name="unit" class="select" id="b0" required></select>
+
+            <ul class="list" id="l_0"></ul>
+
+          </div>
+
+          <button type="button" class="add" onclick="add()">
+            <span class="add_icon">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </span>
+          </button>
+
+          <button type="button" class="rem" onclick="remove()">
+            <span class="rem_icon">
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </span>
+          </button>
+
+        </div>
+        <div id="sym"></div>
+      </div>
+    </div>
+    <input type="submit" class="btn" value="Submit" />
+  </form>
+  <!--Script-->
+  <script>
+
+    const params = new URLSearchParams(window.location.search);
+
+    const symptomData = [];
+    let count = 1;
+    let patient = params.get("user");
+    let visitno = params.get("visit");
+
+    let form = document.getElementById("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      for (let i = 0; i < count; i++) {
+        let symptoms = {
+          symptom: "",
+          type: "",
+          value: "",
+          unit: ""
+        }
+
+
+        let symptom = document.getElementById(`symptom_${i}`).value;
+        let type = document.getElementById(`a${i}`).value;
+        let value = document.getElementById(`numtext_${i}`).value;
+        let unit = document.getElementById(`b${i}`).value;
+
+        symptoms.symptom = symptom
+        symptoms.type = type
+        symptoms.value = value
+        symptoms.unit = unit
+
+        symptomData.push(symptoms);
+      }
+
+      console.log(symptomData)
+      $.post("/registersymptoms", { patient, visitno, symptoms: symptomData }, function (response) {
+        console.log(response)
+      })
+        .done(function () {
+          console.log("success");
+          window.location.href = `/patientoptions?user=${patient}&visit=${visitno}`;
+        })
+        .fail(function (err) {
+          alert("Something went wrong, Try again")
+          console.log("error");
+        })
+    });
+
+
+    var texBox = "";
+    var sym = document.getElementById("sym");
+    function add() {
+      var div = document.createElement("div");
+      div.setAttribute("class", "form-group");
+      div.setAttribute("id", "s" + count);
+      if (count < 15) {
+        var textBox =
+          "<div  id='symptoms_" + count + "'> <input type='text' name='symptom'  class = 'myinput form-control myinput' id='symptom_" +
+          count + "' placeholder='Symptom-" + (count + 1) + "' onkeyup='myFunction(" + count + ")' required/> <i class='fa fa-thermometer-empty fa-lg fa-fw' id='logo_0' aria-hidde='true'></i><select class='select' name='type' id='a" + count + "' onchange='populate(this.id, \"b" + count + "\", " + count + ")' required> <option value=''>select</option> <option value='temp'>Temp</option> <option value='sugar'>Sugar</option> <option value='bloodpressure'>Bloodpressure</option> </select> <input name='value' class='textinput' id='numtext_" + count + "' random='' onkeypress='return inputnum(this, event, " + count + "); required' /> <select name='unit' class='select' id='b" + count + "' required></select> <ul class='list' id='l_" + count + "'></ul> </div>";
+        div.innerHTML = textBox;
+        sym.appendChild(div);
+        count++;
+      }
+    }
+    function remove() {
+      a = document.getElementById("sym");
+      b = document.getElementById("s" + (count - 1));
+      a.removeChild(b);
+      count--;
+    }
+
+    let names = [
+      "cold",
+      "cough",
+      "fever",
+      "headache",
+      "sleeplessness",
+      "stomachpain",
+    ];
+    let sortedNames = names.sort();
+    function myFunction(count) {
+      let input = document.getElementById("symptom_" + (count));
+      removeElements();
+      for (let i of sortedNames) {
+
+        if (
+          i.toLowerCase().startsWith(input.value.toLowerCase()) &&
+          input.value != ""
+        ) {
+          let listItem = document.createElement("li");
+          listItem.classList.add("list-items");
+          listItem.style.cursor = "pointer";
+          listItem.setAttribute("onclick", "displayNames('" + i + "', " + (count) + ")");
+          let word = "<b>" + i.substr(0, input.value.length) + "</b>";
+          word += i.substr(input.value.length);
+          listItem.innerHTML = word;
+          document.getElementById("l_" + (count)).appendChild(listItem);
+        }
+      }
+    }
+    function displayNames(value, count) {
+      let input = document.getElementById("symptom_" + (count));
+      input.value = value;
+      removeElements();
+    }
+    function removeElements() {
+      let items = document.querySelectorAll(".list-items");
+      items.forEach((item) => {
+        item.remove();
+      });
+    }
+
+    function range(count, innc) {
+      const myInput = document.getElementById("myinput_" + count);
+
+      let id = myInput.getAttribute("id");
+      let min = myInput.getAttribute("min");
+      let max = myInput.getAttribute("max");
+      let step = myInput.getAttribute("step");
+      let val = myInput.getAttribute("value");
+      let calcStep = (innc == "increment") ? (step * 1) : (step * -1);
+      let newValue = parseInt(val) + calcStep;
+
+      if (newValue >= min && newValue <= max) {
+        myInput.setAttribute("value", newValue);
+      }
+    }
+    function populate(s1, s2, count) {
+      var s1 = document.getElementById(s1);
+      var s2 = document.getElementById(s2);
+      s2.innerHTML = "";
+      if (s1.value == 'temp') {
+
+        var optionarray = [
+          'c|C', 'f|F'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "num");
+      }
+      else if (s1.value == 'sugar') {
+        var optionarray = [
+          'mg/dl|MG/DL', 'mmol/L|MMOL/L'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "div");
+      }
+      else if (s1.value == 'bloodpressure') {
+        var optionarray = [
+          'mmHg|MMHG'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "div");
+      }
+      for (var option in optionarray) {
+        var pair = optionarray[option].split("|");
+        var newop = document.createElement("option");
+        newop.value = pair[0];
+        newop.innerHTML = pair[1];
+        s2.options.add(newop);
+      }
+    }
+    function inputnum(txt, evt, count) {
+      var id = document.getElementById("numtext_" + count);
+      var check = id.getAttribute("random")
+      if (check == "num") {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode == 46) {
+          if (txt.value.indexOf(".") === -1) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+        }
+        return true;
+      }
+      else if (check == "div") {
+        var reg = /^[0-9.\-\&/ ]*$/;
+        var c = String.fromCharCode(evt.which)
+        if (reg.test(c)) {
+          return true;
+        }
+        else
+          return false;
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .b1 {
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: white;
+      background-color: #7bb4e3;
+      border-radius: 5px;
+      font-family: "Quicksand", sans-serif;
+      margin: 10px 5px;
+      width: fit-content;
+      font-size: 16px;
+      font-weight: 500;
+      height: 40px;
+      position: relative;
+    }
+
+    .b1 progress {
+      position: absolute;
+      left: 0px;
+      bottom: -17px;
+    }
+
+    .b1:hover {
+      background-color: #4e97d1;
+    }
+
+    .b1:active {
+      background-color: #006db2;
+    }
+
+    .t1 {
+      margin-left: 10px;
+      margin-top: 14px;
+      font-family: sans-serif;
+      color: #aaa;
+      max-width: 190px;
+    }
+
+    .button {
+      position: relative;
+      display: flex;
+      height: 38px;
+      padding: 0;
+      background-color: #7bb4e3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 10px 10px;
+      width: fit-content;
+      left: 350px;
+      top: -1px;
+    }
+
+    .button:hover {
+      background-color: #4e97d1;
+    }
+
+    .button:active {
+      background-color: #006db2;
+    }
+
+    .button__text,
+    .button__icon {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .button__icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    #div {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .add {
+      display: flex;
+      position: relative;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 730px;
+      top: 9px;
+    }
+
+    .add:hover {
+      background: #4E97D1;
+    }
+
+    .add:active {
+      background: #006DB2;
+    }
+
+    .add_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .add_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .rem {
+      display: flex;
+      position: relative;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 650px;
+      top: 9px;
+    }
+
+    .rem:hover {
+      background: #4E97D1;
+    }
+
+    .rem:active {
+      background: #006DB2;
+    }
+
+    .rem_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .rem_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    input[type="text"] {
+      width: 20%;
+      height: 40px;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin-left: 30px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      top: 5px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    #div input[type="text"] {
+      padding-left: 40px;
+    }
+
+    element.style {
+      position: relative;
+    }
+
+    #div {
+      position: relative;
+    }
+
+    #div i {
+      position: relative;
+      left: -300px;
+      top: 7px;
+
+      padding: 9px 8px;
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    #div input[type="text"]:focus+i {
+      color: #4E97D1;
+    }
+
+    #div.inputIconBg i {
+      background-color: #aaa;
+      color: #fff;
+      padding: 9px 4px;
+      border-radius: 4px 0 0 4px;
+    }
+
+    #div.inputIconBg input[type="text"]:focus+i {
+      color: #fff;
+      background-color: #4E97D1;
+    }
+
+    #upload-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    #upload-btn:hover {
+      background-color: #7bb4e3;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form">
+
+    <div id="div">
+      <input type="text" name="test" id="ip0" placeholder="Test-1" required />
+      <i class="fa fa-user-md fa-lg fa-fw" aria-hidden="true"></i>
+      <input type="file" id="real-file_0" onchange="fun2(event, 0)" hidden="hidden" />
+      <input type="text" id="file-url-0" hidden="hidden" />
+      <button type="button" class="b1" name="test" id="custom-button_0" onclick="fun(0)">
+        Choose a File
+        <progress id="progress-0" value="0" max="100"> </progress>
+
+      </button>
+      <span class="t1 m-fix" id="custom-text_0">Media File-1</span>
+      <button type="button" class="add" onclick="add()">
+        <span class="add_icon">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </span>
+      </button>
+      <button type="button" class="rem" onclick="remove()">
+        <span class="rem_icon">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </span>
+      </button>
+      <button type="submit" class="button" id="upload-btn">
+        <span class="button__text">Upload</span>
+        <span class="button__icon">
+          <ion-icon name="cloud-upload-outline"></ion-icon>
+        </span>
+      </button>
+    </div>
+    <div id="test"></div>
+  </form>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+
+  <script>
+    let uploadBtn = document.getElementById("upload-btn");
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyDh8Z9VeHHxjnTG-winw4KqUzvTWJPPyVs",
+      authDomain: "webpage-82aff.firebaseapp.com",
+      projectId: "webpage-82aff",
+      storageBucket: "webpage-82aff.appspot.com",
+      messagingSenderId: "395297863271",
+      appId: "1:395297863271:web:aadf5e5359dd18a009c6c2"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function uploadFile(file, index) {
+      if (file.size > 5250000) {
+        document.getElementById(`real-file_${index}`).value = null;
+        document.getElementById(`custom-text_${index}`).innerHTML = "No file chosen, yet."
+        alert("file size must be less then 5mb");
+        return;
+      }
+      uploadBtn.disabled = true
+      const storage = firebase.storage().ref("Files/" + file.name);
+      const task = storage.put(file);
+      let fileInput = document.getElementById(`file-url-${index}`);
+      let progressBar = document.getElementById(`progress-${index}`);
+
+      task.on("state_change",
+        function progress(snap) {
+          progressBar.value = (snap.bytesTransferred / snap.totalBytes * 100) - 4;
+        },
+
+        function error(err) {
+          alert("something went wrong")
+        },
+
+        function completed() {
+          storage.getDownloadURL()
+            .then((url) => {
+              fileInput.value = url;
+              progressBar.value = 100;
+              uploadBtn.disabled = false
+            })
+        }
+      )
+    }
+
+    const customTxt = document.getElementById("custom-text_0");
+    const params = new URLSearchParams(window.location.search);
+
+    const testData = [];
+    let patient = params.get("user");
+    let visitno = params.get("visit");
+
+    let form = document.getElementById("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      for (let i = 0; i < count; i++) {
+        let tests = {
+          test: "",
+          media: ""
+        }
+
+        let test = document.getElementById(`ip${i}`).value;
+        let media = document.getElementById(`file-url-${i}`).value;
+
+        tests.test = test
+        tests.media = media
+
+        testData.push(tests);
+      }
+
+      console.log(testData)
+      $.post("/test/create", { patient, visitno, tests: testData }, function (response) {
+      })
+        .done(function (res) {
+          console.log("success", res);
+          window.location.href = `/patientoptions?user=${patient}&visit=${visitno}`;
+        })
+        .fail(function (err) {
+          alert("Something went wrong, Try again")
+          console.log("error", err);
+        })
+    });
+
+    function fun(id) {
+      filebtn = document.getElementById("real-file_" + id);
+      filebtn.click();
+    }
+
+    function fun2(e, id) {
+      uploadFile(e.target.files[0], id)
+      customTxt1 = document.getElementById("custom-text_" + id);
+      filebtn2 = document.getElementById("real-file_" + id);
+      if (filebtn2.value) {
+        customTxt1.innerText = `${filebtn2.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]}`
+      } else {
+
+        customTxt1.innerHTML = "No file chosen, yet.";
+      }
+    }
+
+    var texBox = "";
+    var count = 1;
+    var test = document.getElementById("test");
+    function add() {
+      var div = document.createElement("div");
+      div.setAttribute("class", "div");
+      div.setAttribute("id", "test" + count);
+      if (count < 10) {
+        var textBox = "<input type='text' name='tests' id='ip" + count + "' placeholder='Test-" + (count + 1) + "' required /><i class='fa fa-user-md fa-lg fa-fw' aria-hidden='true'></i> <input type='file' id='real-file_" + count + "' onchange='fun2(event, " + count + ")'  hidden='hidden' />  <input type='text' id='file-url-" + count + "' hidden='hidden' />  <button type='button' name='test' id='custom-button_" + count + "' class='b1' onclick='fun(" + count + ")'>Choose a File  <progress id='progress-" + count + "' value='0' max='100'> </progress> </button> <span class='t1' id='custom-text_" + count + "'>Media File-" + (count + 1) + "</span>";
+        div.innerHTML = textBox;
+        test.appendChild(div);
+        count++;
+      }
+    }
+    function remove() {
+      console.log(count);
+      a = document.getElementById("test");
+      b = document.getElementById("test" + (count - 1));
+      a.removeChild(b);
+      count--;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Jost&family=Nunito&family=Poppins:wght@300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    <style>* {
+      font-family: 'Poppins', sans-serif;
+
+    }
+
+    #med {
+      position: relative;
+      right: -150px;
+    }
+
+    #in {
+      position: relative;
+      right: -15px;
+
+    }
+
+    #typ {
+      position: relative;
+      right: -125px;
+    }
+
+    #quantity {
+      position: relative;
+      right: -720px;
+    }
+
+    #unit {
+      position: relative;
+      right: -790px;
+    }
+
+    #labels {
+      display: flex;
+      flex-direction: row;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .list {
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .list-items {
+      padding: 10px 5px;
+    }
+
+    .list-items:hover {
+      background-color: #dddddd;
+    }
+
+    input[type="text"] {
+      width: 25%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      position: relative;
+      left: 10px;
+      margin: 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    #div input[type="text"] {
+      padding-left: 40px;
+    }
+
+    element.style {
+      position: relative;
+    }
+
+    #div {
+      position: relative;
+    }
+
+    #div i {
+      position: relative;
+      left: -560px;
+      top: 1px;
+
+      padding: 9px 8px;
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    #div input[type="text"]:focus+i {
+      color: #4E97D1;
+    }
+
+    #div.inputIconBg i {
+      background-color: #aaa;
+      color: #fff;
+      padding: 9px 4px;
+      border-radius: 4px 0 0 4px;
+    }
+
+    #div.inputIconBg input[type="text"]:focus+i {
+      color: #fff;
+      background-color: #4E97D1;
+    }
+
+    .select {
+      width: 10rem;
+    }
+
+    .select {
+      padding: 0.5rem;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      width: fit-content;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+
+    }
+
+    .select:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    .add {
+      display: flex;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 260px;
+      top: 72px;
+    }
+
+    .add:hover {
+      background: #4E97D1;
+    }
+
+    .add:active {
+      background: #006DB2;
+    }
+
+    .add_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .add_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .rem {
+      display: flex;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 180px;
+      top: 72px;
+    }
+
+    .rem:hover {
+      background: #4E97D1;
+    }
+
+    .rem:active {
+      background: #006DB2;
+    }
+
+    .rem_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .rem_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    #my-input {
+      align-items: center;
+    }
+
+    .textinput {
+      max-width: 10%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      posiiton: relative;
+      right: 50px;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .textinput:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    .btn {
+      width: 150px;
+      background-color: #7BB4E3;
+      border: none;
+      outline: none;
+      height: 49px;
+      border-radius: 49px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: 0.5s;
+      position: relative;
+      left: 70px;
+
+    }
+
+    .btn:hover {
+      background-color: #4d84e2;
+    }
+
+    .btn:active {
+      background-color: #006DB2;
+    }
+
+    .display-table {
+      border-collapse: collapse;
+      margin-left: 20px;
+      margin-top: 100px;
+      font-size: 0.9em;
+      min-width: 400px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .display-table thead tr {
+      background-color: #308cc6;
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .display-table th,
+    .display-table td {
+      padding: 17px 38px;
+    }
+
+    .display-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .display-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .display-table tbody tr:last-of-type {
+      border-bottom: 3px solid #308cc6;
+    }
+
+    .file-text {
+      display: inline-block;
+      margin-left: 15px;
+    }
+
+    #add-info {
+      margin-left: 20px;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script type="text/javascript"></script>
+</head>
+
+<body>
+  <form id="medical-form">
+    <div class="container" id="div">
+      <div>
+        <div>
+          <div id="labels">                   
+            <label id="in">
+              <h3>Visit Number (Optional)</h3>
+            </label>
+            <label id="typ">
+              <h3>Options</h3>
+            </label>
+          </div>
+          <div id="symptoms_0">
+            <input type="text" name="patientName" id="patient" class="myinput form-control" placeholder="Patient name"
+              onkeyup="myFunction(0)" hidden />
+            <input class="textinput" name="visitNumber" id="numtext" placeholder="Visit Number" random=""
+              onkeypress="return inputnum(this, event, 0);" />
+            <i class="fa fa-thermometer-empty fa-lg fa-fw" id="logo" aria-hidde="true"></i>
+            <select class="select" name="selection" id="selection">
+              <option value="" disabled selected>Options</option>
+              <option value="symptoms">Symptoms</option>
+              <option value="medicine">Prescription</option>
+              <option value="tests">Tests</option>
+              <option value="symptomsSecond">Symptoms After tests</option>
+            </select>
+            <button type="submit" class="btn">Submit</button>
+
+            <div></div>
+          </div>
+        </div>
+        {{!-- <input type="submit" class="btn" value="Submit" /> --}}
+
+  </form>
+
+  <div id="err-msg"></div>
+
+  <table class="display-table" id="table" style="display: none;">
+    <thead id="thead">
+
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+  </table>
+
+  <div id="add-info"></div>
+  <!--Script-->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    let patient = params.get("user");
+
+    var texBox = "";
+    var count = 1;
+    var sym = document.getElementById("sym");
+    let errMsg = document.getElementById("err-msg");
+    let table = document.getElementById("table");
+    let tbody = document.getElementById("tbody");
+    let thead = document.getElementById("thead");
+    let addInfo = document.getElementById("add-info");
+
+
+
+    let medicalForm = document.getElementById("medical-form");
+
+    medicalForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let selection = document.getElementById(`selection`).value;
+      let patientName = patient;
+      let visitNumber = document.getElementById(`numtext`).value;
+
+      $.post("/medicalhistory", { selection, patientName, visitNumber })
+        .done(function (res) {
+          if (res?.data === "Data not found") {
+            errMsg.innerHTML = `<h1> ${res.data || "Data not found"} </h1>`;
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            addInfo.innerHTML = "";
+            table.style.display = "none";
+          } else if (res?.type === "symptoms") {
+            errMsg.innerHTML = "";
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            addInfo.innerHTML = "";
+            table.style.display = "table";
+             $(`#thead`).append(` <tr>
+                                       <th>Symptom</th>
+                                       <th>Type</th>
+                                       <th>Value</th>
+                                       <th>Unit</th>
+                                       <th>Visit No</th>
+                                    </tr>`)
+            res?.data.forEach((list) => {
+              list?.symptoms.forEach((el) => {
+               $(`#tbody`).append(`<tr>
+                                      <td>${el.symptom}</td>
+                                      <td>${el.type}</td>
+                                      <td>${el.value}</td>
+                                      <td>${el.unit}</td>
+                                      <td>${list.visitno}</td>
+                                    </tr>`)
+              })
+            })
+          } else if (res?.type === "tests") {
+            errMsg.innerHTML = "";
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            addInfo.innerHTML = "";
+            table.style.display = "table";
+            $("#thead").append(` <tr>
+                                     <th>Test Name</th>
+                                     <th>Test Media File</th>
+                                      <th>Visit No</th>
+                                  </tr>`)
+            res?.data.forEach((list) => {
+              list?.tests.forEach((el) => {
+                let fileDownload = "No File Uploaded"
+                if (el.media) {
+                  fileDownload = `<a target="_blank" href=${el.media}>Download</a><span class="file-text">Media File</span>`
+                }
+                $("#tbody").append(` <tr>
+                                      <td>${el.test}</td>
+                                      <td>${fileDownload}</td>
+                                      <td>${list.visitno}</td>
+                                    </tr>`)
+              })
+            })
+          } else if (res?.type === "symptomsSecond") {
+            errMsg.innerHTML = "";
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            addInfo.innerHTML = "";
+            table.style.display = "table";
+            $("#thead").append(` <tr>
+                                     <th>Symptom</th>
+                                     <th>Intensity</th>
+                                     <th>Type</th>
+                                     <th>Value</th>
+                                     <th>Unit</th>
+                                     <th>Symptom Media File</th>
+                                    <th>Visit No</th>
+                                  </tr>`)
+            res?.data.forEach((list) => { 
+              list?.symptoms.forEach((el) => {
+                let fileToDownload = "No File Uploaded"
+                if (el.media) {
+                  fileToDownload = `<a target="_blank" href=${el.media}>Download</a><span class="file-text">Media File</span>`
+                }
+                $("#tbody").append(` <tr>
+                                      <td>${el.symptom}</td>
+                                      <td>${el.intensity}</td>
+                                      <td>${el.type}</td>
+                                      <td>${el.value}</td>
+                                      <td>${el.unit}</td>
+                                      <td>${fileToDownload}</td>
+                                      <td>${list.visitno}</td>
+                                    </tr>`)
+              })
+            })
+          } else if (res?.type === "medicine") {
+            errMsg.innerHTML = "";
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            addInfo.innerHTML = "";
+            table.style.display = "table";
+            $("#thead").append(` <tr>
+                                     <th>Medicine</th>
+                                     <th>Type</th>
+                                     <th>Quantity</th>
+                                     <th>Unit</th>
+                                     <th>Time Day</th>
+                                     <th>Days week</th>
+                                     <th>Number of Day</th>
+                                      <th>Visit No</th>
+                                  </tr>`)
+            res?.data.forEach((list) => {
+              list?.medicines.forEach((el) => {
+                $("#tbody").append(` <tr>
+                                      <td>${el.medicine}</td>
+                                      <td>${el.type}</td>
+                                      <td>${el.quantity}</td>
+                                      <td>${el.unit}</td>
+                                      <td>${el.timeDay}</td>
+                                      <td>${el.weekDay}</td>
+                                      <td>${el.days}</td>
+                                      <td>${list.visitno}</td>
+                                    </tr>`)
+              })
+            let fileToDownload = "No File Uploaded"
+            if (list?.media) {
+              fileToDownload = `<a target="_blank" href=${list?.media}>Download</a><span class="file-text">Media File</span>`
+            }
+            $("#add-info").append(`
+            <p>Is cured/${list.visitno}: <strong> ${list?.cured} </strong></p>
+            <p>Media File/${list.visitno}: <strong> ${fileToDownload} </strong></p>
+            <p>Notes/${list.visitno}: <strong> ${list?.notes ? list?.notes : "No note message found"} </strong></p>
+            `)
+          })
+          } else {
+            errMsg.innerHTML = `<h1> ${"Something went wrong"} </h1>`;
+            thead.innerHTML = "";
+            tbody.innerHTML = "";
+            addInfo.innerHTML = "";
+            table.style.display = "none";
+          }
+        })
+        .fail(function (err) {
+          errMsg.innerHTML = "";
+          thead.innerHTML = "";
+          tbody.innerHTML = "";
+          alert("something went wrong")
+          console.log(err);
+        })
+    });
+    function add() {
+      var div = document.createElement("div");
+      div.setAttribute("class", "form-group");
+      div.setAttribute("id", "s" + count);
+      if (count < 15) {
+        console.log(count);
+        var textBox =
+          "<div  id='symptoms_" + count + "'> <input type='text' name='symptom[]'  class = 'myinput form-control myinput' id='symptom_" +
+          count + "' placeholder='Symptom-" + (count + 1) + "' onkeyup='myFunction(" + count + ")'/> <i class='fa fa-thermometer-empty fa-lg fa-fw' id='logo_0' aria-hidde='true'></i><select class='select' name='intensity[]'> <option disabled selected>Intensity</option> <option value='Low'>Low</option> <option value='Medium'>Medium</option> <option value='High'>High</option> <option value='VeryHigh'>Very High</option></select>   <select class='select' name='type[]' id='a" + count + "' onchange='populate(this.id, \"b" + count + "\", " + count + ")' > <option value=''>select</option> <option value='temp'>Temp</option> <option value='sugar'>Sugar</option> <option value='bloodpressure'>Bloodpressure</option> </select> <input name='value[]' class='textinput' id='numtext_" + count + "' random='' onkeypress='return inputnum(this, event, " + count + ");' /> <select name='unit[]' class='select' id='b" + count + "'></select> <ul class='list' id='l_" + count + "'></ul> </div>";
+        div.innerHTML = textBox;
+        sym.appendChild(div);
+        count++;
+      }
+    }
+    function remove() {
+      a = document.getElementById("sym");
+      b = document.getElementById("s" + (count - 1));
+      a.removeChild(b);
+      count--;
+    }
+
+    let names = [
+      "cold",
+      "cough",
+      "fever",
+      "headache",
+      "sleeplessness",
+      "stomachpain",
+    ];
+    let sortedNames = names.sort();
+    function myFunction(count) {
+      let input = document.getElementById("symptom_" + (count));
+      removeElements();
+      for (let i of sortedNames) {
+
+        if (
+          i.toLowerCase().startsWith(input.value.toLowerCase()) &&
+          input.value != ""
+        ) {
+          let listItem = document.createElement("li");
+          listItem.classList.add("list-items");
+          listItem.style.cursor = "pointer";
+          listItem.setAttribute("onclick", "displayNames('" + i + "', " + (count) + ")");
+          let word = "<b>" + i.substr(0, input.value.length) + "</b>";
+          word += i.substr(input.value.length);
+          listItem.innerHTML = word;
+          document.getElementById("l_" + (count)).appendChild(listItem);
+        }
+      }
+    }
+    function displayNames(value, count) {
+      let input = document.getElementById("symptom_" + (count));
+      input.value = value;
+      removeElements();
+    }
+    function removeElements() {
+      let items = document.querySelectorAll(".list-items");
+      items.forEach((item) => {
+        item.remove();
+      });
+    }
+
+    function range(count, innc) {
+      const myInput = document.getElementById("myinput_" + count);
+
+      let id = myInput.getAttribute("id");
+      let min = myInput.getAttribute("min");
+      let max = myInput.getAttribute("max");
+      let step = myInput.getAttribute("step");
+      let val = myInput.getAttribute("value");
+      let calcStep = (innc == "increment") ? (step * 1) : (step * -1);
+      let newValue = parseInt(val) + calcStep;
+
+      if (newValue >= min && newValue <= max) {
+        myInput.setAttribute("value", newValue);
+      }
+    }
+    function populate(s1, s2, count) {
+      var s1 = document.getElementById(s1);
+      var s2 = document.getElementById(s2);
+      s2.innerHTML = "";
+      if (s1.value == 'temp') {
+
+        var optionarray = [
+          'c|C', 'f|F'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "num");
+      }
+      else if (s1.value == 'sugar') {
+        var optionarray = [
+          'mg/dl|MG/DL', 'mmol/L|MMOL/L'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "div");
+      }
+      else if (s1.value == 'bloodpressure') {
+        var optionarray = [
+          'mmHg|MMHG'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "div");
+      }
+      for (var option in optionarray) {
+        var pair = optionarray[option].split("|");
+        var newop = document.createElement("option");
+        newop.value = pair[0];
+        newop.innerHTML = pair[1];
+        s2.options.add(newop);
+      }
+    }
+    function inputnum(txt, evt, count) {
+      var id = document.getElementById("numtext_" + count);
+      var check = id.getAttribute("random")
+      if (check == "num") {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode == 46) {
+          if (txt.value.indexOf(".") === -1) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+        }
+        return true;
+      }
+      else if (check == "div") {
+        var reg = /^[0-9.\-\&/ ]*$/;
+        var c = String.fromCharCode(evt.which)
+        if (reg.test(c)) {
+          return true;
+        }
+        else
+          return false;
+      }
+    }
+  </script>
+</body>
+
+</html>

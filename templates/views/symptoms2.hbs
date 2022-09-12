@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symptoms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Jost&family=Nunito&family=Poppins:wght@300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+
+    }
+
+    body {
+      background-color: aliceblue;
+    }
+
+    #med {
+      position: relative;
+      right: -40px;
+    }
+
+    #in {
+      position: relative;
+      right: -110px;
+    }
+
+    #typ {
+      position: relative;
+      right: -150px;
+    }
+
+    #quantity {
+      position: relative;
+      right: -250px;
+    }
+
+    #unit {
+      position: relative;
+      right: -305px;
+    }
+
+    #filepos {
+      position: relative;
+      right: -435px;
+    }
+
+    #labels {
+      display: flex;
+      flex-direction: row;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .list {
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .list-items {
+      padding: 10px 5px;
+    }
+
+    .list-items:hover {
+      background-color: #dddddd;
+    }
+
+    input[type="text"] {
+      width: 20%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin-left: 30px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    #div input[type="text"] {
+      padding-left: 40px;
+    }
+
+    element.style {
+      position: relative;
+    }
+
+    #div {
+      position: relative;
+    }
+
+    #div i {
+      position: relative;
+      left: -209px;
+      top: 1px;
+
+      padding: 9px 8px;
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    #div input[type="text"]:focus+i {
+      color: #4E97D1;
+    }
+
+    #div.inputIconBg i {
+      background-color: #aaa;
+      color: #fff;
+      padding: 9px 4px;
+      border-radius: 4px 0 0 4px;
+    }
+
+    #div.inputIconBg input[type="text"]:focus+i {
+      color: #fff;
+      background-color: #4E97D1;
+    }
+
+    .select {
+      width: 10rem;
+    }
+
+    .select {
+      padding: 0.5rem;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 4px 4px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      width: fit-content;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+
+    }
+
+    .select:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    .add {
+      display: flex;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 160px;
+      top: 72px;
+    }
+
+    .add:hover {
+      background: #4E97D1;
+    }
+
+    .add:active {
+      background: #006DB2;
+    }
+
+    .add_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .add_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .rem {
+      display: flex;
+      height: 37px;
+      padding: 0;
+      background: #7BB4E3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      position: absolute;
+      right: 80px;
+      top: 72px;
+    }
+
+    .rem:hover {
+      background: #4E97D1;
+    }
+
+    .rem:active {
+      background: #006DB2;
+    }
+
+    .rem_icon {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .rem_icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    #my-input {
+      align-items: center;
+    }
+
+    .textinput {
+      max-width: 10%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .textinput:focus {
+      border-color: #4E97D1;
+      box-shadow: 0 0 8px 0 #4E97D1;
+    }
+
+    .b1 {
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: white;
+      background-color: #7bb4e3;
+      border-radius: 5px;
+      font-family: "Quicksand", sans-serif;
+      cursor: pointer;
+      margin: 12px 5px;
+      width: fit-content;
+      font-size: 16px;
+      font-weight: 500;
+      height: 40px;
+      position: relative;
+      left: 130px;
+      position: relative;
+    }
+
+    .b1 progress {
+      position: absolute;
+      left: 0px;
+      bottom: -17px;
+    }
+
+    .b1:hover {
+      background-color: #4e97d1;
+    }
+
+    .b1:active {
+      background-color: #006db2;
+    }
+
+    .t1 {
+      margin-left: 10px;
+      margin-top: 14px;
+      font-family: sans-serif;
+      color: #aaa;
+    }
+
+    .button {
+      position: relative;
+      display: flex;
+      height: 38px;
+      padding: 0;
+      background-color: #7bb4e3;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      overflow: hidden;
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 10px 10px;
+      width: fit-content;
+      left: 520px;
+      top: -3px;
+    }
+
+    .button:hover {
+      background-color: #4e97d1;
+    }
+
+    .button:active {
+      background-color: #006db2;
+    }
+
+    .button__text,
+    .button__icon {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #fff;
+      height: 100%;
+    }
+
+    .button__icon {
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    #div {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .pos {
+      position: relative;
+      left: 130px;
+    }
+
+    .file-name {
+      display: inline-block;
+      max-width: 170px;
+    }
+
+    #upload-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    #upload-btn:hover {
+      background-color: #7bb4e3;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form">
+    <div class="container" id="div">
+      <div>
+        <div>
+          <div id="labels">
+            <label id="med">
+              <h3>Symptoms after tests</h3>
+            </label>
+            <label id="in">
+              <h3>Intensity</h3>
+            </label>
+            <label id="typ">
+              <h3>Types</h3>
+            </label>
+            <label id="quantity">
+              <h3>Value</h3>
+            </label>
+            <label id="unit">
+              <h3>Units</h3>
+            </label>
+            <label id="filepos">
+              <h3>Files regarding symptoms</h3>
+            </label>
+          </div>
+          <input type="text" name="symptoms" id="symptom_0" class="myinput form-control" placeholder="Symptom-1"
+            onkeyup="myFunction(0)" required/>
+
+          <i class="fa fa-thermometer-empty fa-lg fa-fw" id="logo" aria-hidde="true"></i>
+          <select class="select" id='intensity_0' name="select" required>
+            <option value="" disabled selected>Intensity</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="VeryHigh">Very High</option>
+          </select>
+          <select class="select" name="sel1" id="a0" onchange="populate(this.id, 'b0', 0)" required>
+            <option value="">select</option>
+            <option value="temp">Temp</option>
+            <option value="sugar">Sugar</option>
+            <option value="bloodpressure">Bloodpressure</option>
+          </select>
+          <input class="textinput" id="numtext_0" random="" onkeypress="return inputnum(this, event, 0);" required/>
+          <select name="sel2" class="select" id="b0"></select>
+          <input type="file" id="real-file_0" onchange="fun2(event, 0)" hidden="hidden"/>
+          <input type="text" id="file-url-0" hidden="hidden" />
+          <button type="button" class="b1 pos" name="test" id="custom-button_0" onclick="fun(0)">
+            Choose a File
+            <progress id="progress-0" value="0" max="100"> </progress>
+
+          </button>
+          <span class="t1 pos file-name" id="custom-text_0">Media File-1</span>
+          <button type="button" class="add" onclick="add()">
+            <span class="add_icon">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </span>
+          </button>
+          <button type="button" class="rem" onclick="remove()">
+            <span class="rem_icon">
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </span>
+          </button>
+
+          <ul class="list" id="l_0"></ul>
+          <button type="button" class="add" onclick="add()">
+            <span class="add_icon">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </span>
+          </button>
+          <button type="button" class="rem" onclick="remove()">
+            <span class="rem_icon">
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </span>
+          </button>
+        </div>
+        <div id="sym"></div>
+      </div>
+    </div>
+    <button type="submit" class="b1" style="position:relative; left:600px;" id="upload-btn">Submit</button>
+  </form>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+
+  <!--Script-->
+  <script>
+    let uploadBtn = document.getElementById("upload-btn");
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyDh8Z9VeHHxjnTG-winw4KqUzvTWJPPyVs",
+    authDomain: "webpage-82aff.firebaseapp.com",
+    projectId: "webpage-82aff",
+    storageBucket: "webpage-82aff.appspot.com",
+    messagingSenderId: "395297863271",
+    appId: "1:395297863271:web:aadf5e5359dd18a009c6c2"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function uploadFile(file, index) {
+      if (file.size > 5250000) {
+        document.getElementById(`real-file_${index}`).value = null;
+        document.getElementById(`custom-text_${index}`).innerHTML = "No file chosen, yet."
+        alert("file size must be less then 5mb");
+        return;
+      }
+      uploadBtn.disabled = true
+      const storage = firebase.storage().ref("Files/" + file.name);
+      const task = storage.put(file);
+      let fileInput = document.getElementById(`file-url-${index}`);
+      let progressBar = document.getElementById(`progress-${index}`);
+
+      task.on("state_change",
+        function progress(snap) {
+          progressBar.value = (snap.bytesTransferred / snap.totalBytes * 100);
+        },
+
+        function error(err) {
+          alert("something went wrong")
+        },
+
+        function completed() {
+          storage.getDownloadURL()
+            .then((url) => {
+              fileInput.value = url;
+              uploadBtn.disabled = false
+            })
+        }
+      )
+    }
+
+    const params = new URLSearchParams(window.location.search);
+
+    const symptomData = [];
+    let patient = params.get("user");
+    let visitno = params.get("visit");
+    var texBox = "";
+    var count = 1;
+    var sym = document.getElementById("sym");
+
+    let form = document.getElementById("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      for (let i = 0; i < count; i++) {
+        let symptomsSecond = {
+          symptom: "",
+          intensity: "",
+          type: "",
+          value: "",
+          unit: "",
+          media: ""
+        }
+
+        let symptom = document.getElementById(`symptom_${i}`).value;
+        let intensity = document.getElementById(`intensity_${i}`).value;
+        let type = document.getElementById(`a${i}`).value;
+        let value = document.getElementById(`numtext_${i}`).value;
+        let unit = document.getElementById(`b${i}`).value;
+        let media = document.getElementById(`file-url-${i}`).value;
+
+        symptomsSecond.symptom = symptom
+        symptomsSecond.intensity = intensity
+        symptomsSecond.type = type
+        symptomsSecond.value = value
+        symptomsSecond.unit = unit
+        symptomsSecond.media = media
+
+        symptomData.push(symptomsSecond);
+      }
+
+      console.log(symptomData)
+      $.post("/symptom/second/create", { patient, visitno, symptomsSecond: symptomData }, function (response) {
+        console.log(response)
+      })
+        .done(function () {
+          console.log("success");
+          window.location.href = `/patientoptions?user=${patient}&visit=${visitno}`;
+        })
+        .fail(function (err) {
+          alert("Something went wrong, Try again")
+          console.log("error");
+        })
+    });
+
+    function add() {
+      var div = document.createElement("div");
+      div.setAttribute("class", "form-group");
+      div.setAttribute("id", "s" + count);
+      if (count < 15) {
+        console.log(count);
+        var textBox =
+          "<input type='text' name='symptoms'  class = 'myinput form-control myinput' id='symptom_" +
+          count + "' placeholder='Symptom-" + (count + 1) + "' onkeyup='myFunction(" + count + ")' required/> <i class='fa fa-thermometer-empty fa-lg fa-fw' id='logo_0' aria-hidde='true'></i><select class='select' id='intensity_" + count + "' name='select' required> <option disabled selected>Intensity</option> <option value='Low'>Low</option> <option value='Medium'>Medium</option> <option value='High'>High</option> <option value='VeryHigh'>Very High</option></select>   <select class='select' name='sel1' id='a" + count + "' onchange='populate(this.id, \"b" + count + "\", " + count + ")' required > <option value=''>select</option> <option value='temp'>Temp</option> <option value='sugar'>Sugar</option> <option value='bloodpressure'>Bloodpressure</option> </select> <input  class='textinput' id='numtext_" + count + "' random='' onkeypress='return inputnum(this, event, " + count + ");' required /> <select name='sel2' class='select' id='b" + count + "'></select> <input type='file' id='real-file_" + count + "' onchange='fun2(event, " + count + ")'  hidden='hidden' /> <input type='text' id='file-url-" + count + "' hidden='hidden' /> <button type='button' name='test' id='custom-button_" + count + "' class='b1' onclick='fun(" + count + ")'>Choose a File <progress id='progress-" + count + "' value='0' max='100'> </progress> </button> <span class='t1 pos' id='custom-text_" + count + "'>Medial File-" + (count + 1
+          ) + "</span> <ul class='list' id='l_" + count + "'></ul>";
+        div.innerHTML = textBox;
+        sym.appendChild(div);
+        count++;
+      }
+    }
+    function remove() {
+      a = document.getElementById("sym");
+      b = document.getElementById("s" + (count - 1));
+      a.removeChild(b);
+      count--;
+    }
+
+    let names = [
+      "cold",
+      "cough",
+      "fever",
+      "headache",
+      "sleeplessness",
+      "stomachpain",
+    ];
+    let sortedNames = names.sort();
+    function myFunction(count) {
+      let input = document.getElementById("symptom_" + (count));
+      removeElements();
+      for (let i of sortedNames) {
+
+        if (
+          i.toLowerCase().startsWith(input.value.toLowerCase()) &&
+          input.value != ""
+        ) {
+          let listItem = document.createElement("li");
+          listItem.classList.add("list-items");
+          listItem.style.cursor = "pointer";
+          listItem.setAttribute("onclick", "displayNames('" + i + "', " + (count) + ")");
+          let word = "<b>" + i.substr(0, input.value.length) + "</b>";
+          word += i.substr(input.value.length);
+          listItem.innerHTML = word;
+          document.getElementById("l_" + (count)).appendChild(listItem);
+        }
+      }
+    }
+    function displayNames(value, count) {
+      let input = document.getElementById("symptom_" + (count));
+      input.value = value;
+      removeElements();
+    }
+    function removeElements() {
+      let items = document.querySelectorAll(".list-items");
+      items.forEach((item) => {
+        item.remove();
+      });
+    }
+
+    function range(count, innc) {
+      const myInput = document.getElementById("myinput_" + count);
+
+      let id = myInput.getAttribute("id");
+      let min = myInput.getAttribute("min");
+      let max = myInput.getAttribute("max");
+      let step = myInput.getAttribute("step");
+      let val = myInput.getAttribute("value");
+      let calcStep = (innc == "increment") ? (step * 1) : (step * -1);
+      let newValue = parseInt(val) + calcStep;
+
+      if (newValue >= min && newValue <= max) {
+        myInput.setAttribute("value", newValue);
+      }
+    }
+    function populate(s1, s2, count) {
+      var s1 = document.getElementById(s1);
+      var s2 = document.getElementById(s2);
+      s2.innerHTML = "";
+      if (s1.value == 'temp') {
+
+        var optionarray = [
+          'c|C', 'f|F'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "num");
+      }
+      else if (s1.value == 'sugar') {
+        var optionarray = [
+          'mg/dl|MG/DL', 'mmol/L|MMOL/L'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "div");
+      }
+      else if (s1.value == 'bloodpressure') {
+        var optionarray = [
+          'mmHg|MMHG'
+        ];
+        var id = document.getElementById("numtext_" + count);
+        id.value = "";
+        id.setAttribute("random", "div");
+      }
+      for (var option in optionarray) {
+        var pair = optionarray[option].split("|");
+        var newop = document.createElement("option");
+        newop.value = pair[0];
+        newop.innerHTML = pair[1];
+        s2.options.add(newop);
+      }
+    }
+    function inputnum(txt, evt, count) {
+      var id = document.getElementById("numtext_" + count);
+      var check = id.getAttribute("random")
+      if (check == "num") {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        if (charCode == 46) {
+          if (txt.value.indexOf(".") === -1) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+        }
+        return true;
+      }
+      else if (check == "div") {
+        var reg = /^[0-9.\-\&/ ]*$/;
+        var c = String.fromCharCode(evt.which)
+        if (reg.test(c)) {
+          return true;
+        }
+        else
+          return false;
+      }
+    }
+    const realFileBtn = document.getElementById("real-file_0");
+    const customBtn = document.getElementById("custom-button_0");
+    const customTxt = document.getElementById("custom-text_0");
+
+
+    function fun(id) {
+      filebtn = document.getElementById("real-file_" + id);
+      filebtn.click();
+    }
+    function fun2(e, id) {
+      uploadFile(e.target.files[0], id)
+      customTxt1 = document.getElementById("custom-text_" + id);
+      filebtn2 = document.getElementById("real-file_" + id);
+      if (filebtn2.value) {
+        customTxt1.innerHTML = filebtn2.value.match(
+          /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+      } else {
+
+        customTxt1.innerHTML = "No file chosen, yet.";
+      }
+    }
+  </script>
+</body>
+
+</html>
